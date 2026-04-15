@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>LinkLocal Superuser Login</title>
+  <style>
+    body { font-family: "Segoe UI", sans-serif; margin: 0; background: linear-gradient(135deg, #19323c, #244955); color: #fff; min-height: 100vh; display: grid; place-items: center; }
+    .card { width: 360px; background: rgba(255,255,255,0.12); padding: 32px; border-radius: 20px; backdrop-filter: blur(10px); box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+    input { width: 100%; padding: 14px; border-radius: 12px; border: 0; margin-top: 12px; font-size: 15px; }
+    button { width: 100%; margin-top: 16px; padding: 14px; background: #e67e22; color: white; border: 0; border-radius: 12px; font-weight: 700; cursor: pointer; }
+    .error { color: #ffd6d6; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <form class="card" method="post">
+    <h1>LinkLocal Superuser</h1>
+    <p>Enter the local superuser token from your LinkLocal config.</p>
+    <input type="password" name="token" placeholder="Superuser token" autofocus>
+    <button type="submit">Login</button>
+    {% if error %}<div class="error">{{ error }}</div>{% endif %}
+  </form>
+</body>
+</html>

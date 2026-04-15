@@ -1,0 +1,16 @@
+{
+  "app_pin_hash": null,
+  "avatar": "LL",
+  "display_name": "Alice",
+  "do_not_disturb": false,
+  "integrity_secret": "3ce7a764dbb9491308403497650ca1009ba360a7684f3294edd0309c3c2e94bb",
+  "key_rotation_interval": 10,
+  "manual_peers": [],
+  "notification_sound": true,
+  "peer_id": "73f6e36f-9ab6-4b98-bfe2-dcde3c834341",
+  "status_message": "Available",
+  "superuser_token": "e451c8bffd07646f53e332bec53e2cb6b59f3422970379790b5c9279a869f4b4",
+  "tcp_port": 55556,
+  "theme": "light",
+  "udp_discovery_port": 55555
+}
