@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="Online orders code.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1946"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="Online-Store-Order" custom_title="0" dock_id="2" table="4,18:mainOnline-Store-Order"/><dock_state state="000000ff00000000fd0000000100000002000004f40000021efc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000000004f40000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000004f40000011800ffffff000002580000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">SELECT * from [Online-Store-Order];
+/*
+SELECT strftime('%Y',Date) AS Order_Year FROM [Online-Store-Order];
+SELECT SUBSTR(Date,6,2) AS MONTH FROM [Online-Store-Order];
+*/
+SELECT COUNT(CustomerID) AS TOTAL_CUST,PaymentMethod FROM [Online-Store-Order] GROUP BY PaymentMethod;
+SELECT OrderStatus,COUNT(CustomerID) AS TOTAL_ORDERS FROM [Online-Store-Order] GROUP BY OrderStatus;
+SELECT count(OrderID) AS [NO OF ORDERS],ReferralSource FROM [Online-Store-Order] GROUP BY ReferralSource;
+
+SELECT Product,SUM(TotalPrice) as Total_Revenue FROM [Online-Store-Order] GROUP BY Product;
+
+SELECT sum(TotalPrice) as Total from [Online-Store-Order];
+
+SELECT COUNT(DISTINCT(OrderID)) AS [NO OF ORDERS],ReferralSource FROM [Online-Store-Order] GROUP BY ReferralSource;
+
+SELECT count(DISTINCT OrderID) as [Total Orders],Sum(TotalPrice) as Revenue,CASE STRFTIME('%m', Date)
+    WHEN '01' THEN 'Jan'
+    WHEN '02' THEN 'Feb'
+    WHEN '03' THEN 'Mar'
+    WHEN '04' THEN 'Apr'
+    WHEN '05' THEN 'May'
+    WHEN '06' THEN 'Jun'
+    WHEN '07' THEN 'Jul'
+    WHEN '08' THEN 'Aug'
+    WHEN '09' THEN 'Sep'
+    WHEN '10' THEN 'Oct'
+    WHEN '11' THEN 'Nov'
+    WHEN '12' THEN 'Dec'
+END AS month
+ , STRFTIME('%Y',Date) as year FROM [Online-Store-Order] group by STRFTIME('%Y', Date), STRFTIME('%m', Date) order by [Total Orders] desc LIMIT 5; 
+
+select avg(TotalPrice) as average,strftime('%m',Date) as month,strftime('%Y',Date) as year from [Online-Store-Order] group by year,month order by year,month;
+
+with monthly_sales as (
+select strftime('%Y-%m',Date) as month_year ,sum(TotalPrice) as revenue from [Online-Store-Order] group by month_year)
+select month_year,revenue from monthly_sales where revenue&gt;
+(select ms2.revenue from monthly_sales ms2 where ms2.month_year&lt;monthly_sales.month_year order by ms2.month_year desc limit 1)
+ </sql><current_tab id="0"/></tab_sql></sqlb_project>
