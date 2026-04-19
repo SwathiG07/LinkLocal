@@ -1,0 +1,7 @@
+{
+  "display_name": "Alice",
+  "peer_id": "524e5327-0926-4147-9e15-c229f99336d8",
+  "superuser_token": "cfb9c85238496e054880718df0ae6333868cb1fe14748636255d68569cdd494d",
+  "tcp_port": 55556,
+  "udp_discovery_port": 55555
+}

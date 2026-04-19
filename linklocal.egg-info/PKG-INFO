@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: linklocal
+Version: 1.0.0
+Summary: A Python LAN P2P Chat System
+Requires-Dist: cryptography
+Requires-Dist: flask
+Dynamic: requires-dist
+Dynamic: summary
