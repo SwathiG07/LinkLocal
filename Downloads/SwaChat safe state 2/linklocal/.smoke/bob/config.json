@@ -1,7 +1,0 @@
-{
-  "display_name": "Bob",
-  "peer_id": "b584208c-c0a9-4b76-ade1-4ea843a51aed",
-  "superuser_token": "0d736d6dde7f0895ca6e68ed0c6e2bd5ed945e991aba75bd270612b7e9a1cb73",
-  "tcp_port": 60770,
-  "udp_discovery_port": 55555
-}
